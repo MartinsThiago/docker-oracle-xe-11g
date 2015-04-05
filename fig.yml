@@ -1,0 +1,6 @@
+db:
+  from: martinsthiago/oraclexe-11g-fig-pro
+  volumes:
+  - ./provision:/provision
+  ports:
+  - "1521:1521"
