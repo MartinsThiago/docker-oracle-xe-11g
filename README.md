@@ -22,7 +22,7 @@ echo "CREATE TABLE TODO(
 ```
 
 ### Running With Docker
-Run port 1521 opened, optionally expose port 8080 for apex:
+Run with port 1521 opened, optionally expose port 8080 for apex:
 ```
 docker run -d -p 8080:8080 -p 1521:1521 martinsthiago/oraclexe-11g-fig
 ```
