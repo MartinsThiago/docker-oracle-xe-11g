@@ -8,7 +8,6 @@ ADD initXETemp.ora /
 ADD oracle-xe_11.2.0-1.0_amd64.debaa /
 ADD oracle-xe_11.2.0-1.0_amd64.debab /
 ADD oracle-xe_11.2.0-1.0_amd64.debac /
-# ADD oracle-xe_11.2.0-1.0_amd64.deb /
 RUN cat /oracle-xe_11.2.0-1.0_amd64.deba* > /oracle-xe_11.2.0-1.0_amd64.deb
 
 # Prepare to install Oracle
