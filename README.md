@@ -37,6 +37,7 @@ db:
   - ./provision:/provision
   ports:
   - "1521:1521"
+  - "8080:8080"
 ```
 
 Then run `fig up db` then `fig start db` 
