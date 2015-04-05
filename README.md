@@ -3,22 +3,49 @@ docker-oracle-xe-11g
 
 Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS
 
-This **Dockerfile** is a [trusted build](https://registry.hub.docker.com/u/wnameless/oracle-xe-11g/) of [Docker Registry](https://registry.hub.docker.com/).
+This is a fork from wnameless/docker-oracle-xe-11g to provide simple usage with fig and provisioning capabilities.
 
 ### Installation
 ```
-docker pull wnameless/oracle-xe-11g
+docker pull martinsthiago/oraclexe-11g-fig
 ```
 
-Run with 22 and 1521 ports opened:
+### Provisioning
+Place your scripts into the container in `/provision`, here is a simple provision script
+
 ```
-docker run -d -p 49160:22 -p 49161:1521 wnameless/oracle-xe-11g
+echo "CREATE TABLE TODO(
+    TITLE VARCHAR(),
+    SUBTITLE VARCHAR(),
+    CREATED_ON VARCHAR()
+);" | sqlplus system/oracle
 ```
 
+### Running With Docker
+Run port 1521 opened, optionally expose port 8080 for apex:
+```
+docker run -d -p 8080:8080 -p 1521:1521 martinsthiago/oraclexe-11g-fig
+```
+
+### Running With Fig
+In case you use fig, create a `fig.yml` like the one bellow
+
+```
+db:
+  from: martinsthiago/oraclexe-11g-fig
+  volumes:
+  - ./provision:/provision
+  ports:
+  - "1521:1521"
+```
+
+Then run `fig up db` then `fig start db` 
+
+### Database Connection
 Connect database with following setting:
 ```
 hostname: localhost
-port: 49161
+port: 1521
 sid: xe
 username: system
 password: oracle
@@ -27,10 +54,4 @@ password: oracle
 Password for SYS & SYSTEM
 ```
 oracle
-```
-
-Login by SSH
-```
-ssh root@localhost -p 49160
-password: admin
 ```
