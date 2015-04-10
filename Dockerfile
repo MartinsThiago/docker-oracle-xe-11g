@@ -9,9 +9,9 @@ ENV PATH=$ORACLE_HOME/bin:$PATH
 ADD chkconfig /sbin/
 ADD init.ora /
 ADD initXETemp.ora /
-ADD oracle-xe_11.2.0-1.0_amd64.deba /
-ADD oracle-xe_11.2.0-1.0_amd64.debb /
-ADD oracle-xe_11.2.0-1.0_amd64.debc /
+ADD oracle-xe_11.2.0-1.0_amd64.debaa /
+ADD oracle-xe_11.2.0-1.0_amd64.debab /
+ADD oracle-xe_11.2.0-1.0_amd64.debac /
 ADD startup.sh /
 
 # Install Oracle dependencies
