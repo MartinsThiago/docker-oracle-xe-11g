@@ -19,7 +19,13 @@ RUN apt-get install -y libaio1 net-tools bc && \
     ln -s /usr/bin/awk /bin/awk && \
     mkdir /var/lock/subsys && \
     chmod 755 /sbin/chkconfig && \
-    chmod +x /startup.sh
+    chmod +x /startup.sh && \
+    cat /oracle-xe_11.2.0-1.0_amd64.deba* > /oracle-xe_11.2.0-1.0_amd64.deb
+    dpkg --install /oracle-xe_11.2.0-1.0_amd64.deb && \
+    rm -rf oracle-xe* && \
+    mv /init.ora /u01/app/oracle/product/11.2.0/xe/config/scripts && \
+    mv /initXETemp.ora /u01/app/oracle/product/11.2.0/xe/config/scripts && \
+    printf 8080\\n1521\\noracle\\noracle\\ny\\n | /etc/init.d/oracle-xe configure
 
 EXPOSE 1521
 EXPOSE 8080
