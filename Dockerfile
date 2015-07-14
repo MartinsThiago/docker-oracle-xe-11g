@@ -20,7 +20,7 @@ RUN apt-get install -y libaio1 net-tools bc && \
     mkdir /var/lock/subsys && \
     chmod 755 /sbin/chkconfig && \
     chmod +x /startup.sh && \
-    cat /oracle-xe_11.2.0-1.0_amd64.deba* > /oracle-xe_11.2.0-1.0_amd64.deb
+    cat /oracle-xe_11.2.0-1.0_amd64.deba* > /oracle-xe_11.2.0-1.0_amd64.deb && \
     dpkg --install /oracle-xe_11.2.0-1.0_amd64.deb && \
     rm -rf oracle-xe* && \
     mv /init.ora /u01/app/oracle/product/11.2.0/xe/config/scripts && \
