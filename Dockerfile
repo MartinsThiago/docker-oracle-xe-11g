@@ -9,13 +9,13 @@ ENV PATH=$ORACLE_HOME/bin:$PATH
 ADD chkconfig /sbin/
 ADD init.ora /
 ADD initXETemp.ora /
-ADD oracle-xe_11.2.0-1.0_amd64.debaa /
-ADD oracle-xe_11.2.0-1.0_amd64.debab /
-ADD oracle-xe_11.2.0-1.0_amd64.debac /
 ADD startup.sh /
 
 # Install Oracle dependencies
-RUN apt-get install -y libaio1 net-tools bc && \
+RUN wget https://github.com/MartinsThiago/oraclexe-11g-fig/raw/master/oracle-xe_11.2.0-1.0_amd64.debaa && \
+    wget https://github.com/MartinsThiago/oraclexe-11g-fig/raw/master/oracle-xe_11.2.0-1.0_amd64.debab && \
+    wget https://github.com/MartinsThiago/oraclexe-11g-fig/raw/master/oracle-xe_11.2.0-1.0_amd64.debac && \
+    apt-get install -y libaio1 net-tools bc && \
     ln -s /usr/bin/awk /bin/awk && \
     mkdir /var/lock/subsys && \
     chmod 755 /sbin/chkconfig && \
