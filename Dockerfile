@@ -12,7 +12,8 @@ ADD initXETemp.ora /
 ADD startup.sh /
 
 # Install Oracle dependencies
-RUN wget https://github.com/MartinsThiago/oraclexe-11g-fig/raw/master/oracle-xe_11.2.0-1.0_amd64.debaa && \
+RUN apt-get install wget -y && \
+    wget https://github.com/MartinsThiago/oraclexe-11g-fig/raw/master/oracle-xe_11.2.0-1.0_amd64.debaa && \
     wget https://github.com/MartinsThiago/oraclexe-11g-fig/raw/master/oracle-xe_11.2.0-1.0_amd64.debab && \
     wget https://github.com/MartinsThiago/oraclexe-11g-fig/raw/master/oracle-xe_11.2.0-1.0_amd64.debac && \
     apt-get install -y libaio1 net-tools bc && \
